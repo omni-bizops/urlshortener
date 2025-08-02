@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Shortener - Verkürze deine Links</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-link"></i>
+                <h1>URL Shortener</h1>
+            </div>
+            <p class="subtitle">Verkürze deine Links schnell und einfach</p>
+        </header>
+
+        <main class="main">
+            <div class="shortener-card">
+                <div class="input-group">
+                    <label for="urlInput">Lange URL eingeben:</label>
+                    <div class="input-wrapper">
+                        <input type="url" id="urlInput" placeholder="https://www.example.com/very-long-url..." required>
+                        <button id="shortenBtn" class="shorten-btn">
+                            <i class="fas fa-cut"></i>
+                            Verkürzen
+                        </button>
+                    </div>
+                </div>
+
+                <div id="result" class="result hidden">
+                    <div class="result-header">
+                        <i class="fas fa-check-circle"></i>
+                        <span>URL erfolgreich verkürzt!</span>
+                    </div>
+                    <div class="shortened-url">
+                        <input type="text" id="shortUrl" readonly>
+                        <button id="copyBtn" class="copy-btn" title="In Zwischenablage kopieren">
+                            <i class="fas fa-copy"></i>
+                        </button>
+                    </div>
+                    <div class="qr-section">
+                        <div id="qrCode" class="qr-code"></div>
+                        <button id="downloadQrBtn" class="download-qr-btn">
+                            <i class="fas fa-download"></i>
+                            QR-Code herunterladen
+                        </button>
+                    </div>
+                </div>
+
+                <div id="error" class="error hidden">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <span id="errorMessage">Ein Fehler ist aufgetreten.</span>
+                </div>
+            </div>
+
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Schnell</h3>
+                    <p>Verkürze URLs in Sekunden</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Sicher</h3>
+                    <p>Alle Links werden lokal gespeichert</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-qrcode"></i>
+                    <h3>QR-Code</h3>
+                    <p>Automatische QR-Code Generierung</p>
+                </div>
+            </div>
+
+            <div class="recent-links">
+                <h2>Kürzlich verkürzte Links</h2>
+                <div id="recentLinks" class="links-list">
+                    <!-- Recent links will be populated here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html> 
